@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Contador from './componentes/Contador';
 import Formulario from './componentes/Formulario';
 import './App.css';
+import Boton from './componentes/Boton';
 
 // const contadores = ['Alumnos', 'Profesores', 'Aulas', 'etc.', 'etc.'];
 
@@ -32,20 +33,24 @@ export default class App extends Component{
     this.setState({ contadores: nuevosContadores });
 }
 
+//        <Boton>Agregar nuevo</Boton>
+//        <Boton>Eliminar todo</Boton>
 
 render() {
   return (
       <div className='contenedor'>
-          <Formulario guardar={(nombre) => this.guardar(nombre)} />
-          <div className='ListaContadores'>
-              {this.state.contadores.map((cont, index) =>
-                  <Contador 
-                      key={index}
-                      eliminar={() => this.eliminar(index)}
-                  >
-                      {cont}
-                  </Contador>
-              )}
+          
+       <Formulario guardar={(nombre) => this.guardar(nombre)} />
+      
+      <div className="ListaContadores">
+        {this.state.contadores.map((cont, index) =>
+          <Contador 
+          key={index}
+          eliminar={() => this.eliminar(index)}
+           >
+          {cont}
+          </Contador>
+         )}
           </div>
       </div>
   );

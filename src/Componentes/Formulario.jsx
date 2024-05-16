@@ -13,21 +13,14 @@ export default class Formulario extends Component {
     render() {
         return (
             <div className="Formulario">
-                <input 
-                    type="text" 
-                    placeholder="Nombre" 
-                    value={this.state.nombre} 
-                    onChange={(e) => this.setState({ nombre: e.target.value })} 
-                />
-                <input 
-                    type="number" 
-                    placeholder="Valor" 
-                    value={this.state.valor} 
-                    onChange={(e) => this.setState({ valor: e.target.value })} 
+                
+                <Boton 
+                    accion={() => this.props.guardar(this.state.nombre, this.state.valor)} 
+                    simbolo="agregar nuava nota"
                 />
                 <Boton 
                     accion={() => this.props.guardar(this.state.nombre, this.state.valor)} 
-                    simbolo="guardar"
+                    simbolo="eliminar todo"
                 />
             </div>
         );
